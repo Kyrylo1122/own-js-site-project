@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://github.com/aleksandrchuyko/fs44js-team-proj.git",
+  "homepage": "https://github.com/Kyrylo1122/own-js-site-project",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /fs44js-team-proj/"
+    "build": "parcel build src/*.html --public-url /own-js-site-project/"
   },
   "repository": {
     "type": "git",
