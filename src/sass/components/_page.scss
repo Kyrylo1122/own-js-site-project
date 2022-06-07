@@ -1,0 +1,12 @@
+.page {
+  display: flex;
+  margin-top: 60px;
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+  &__btn {
+    padding: 5px 10px;
+    background-color: orange;
+  }
+}

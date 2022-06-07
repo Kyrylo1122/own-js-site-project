@@ -1,0 +1,38 @@
+.card {
+  margin: 10px;
+
+  @media screen and (min-width: 768px) {
+    margin: 16px;
+    width: calc(100% / 2 - 32px);
+  }
+  @media screen and (min-width: 1024px) {
+    width: calc(100% / 3 - 32px);
+  }
+
+  &__container {
+    margin-bottom: 10px;
+  }
+  &__img {
+    border-radius: 5px;
+    max-width: 100%;
+  }
+}
+.meta {
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--font-black-color);
+  &__list {
+    display: flex;
+    color: var(--font-orange-color);
+  }
+  &__item {
+    &:not(:first-child) {
+      margin-left: 5px;
+    }
+
+    &--genres {
+      border-right: 1px solid var(--font-orange-color);
+      padding-right: 5px;
+    }
+  }
+}

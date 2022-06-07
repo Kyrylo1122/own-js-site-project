@@ -1,7 +1,6 @@
-
 body {
-  font-family: var(--basic-text-famili);
-  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   outline: none;
 }
 
@@ -25,6 +24,7 @@ button {
 }
 
 .container {
+  outline: 1px solid brown;
   max-width: 100%;
   padding-left: 20px;
   padding-right: 20px;
@@ -46,4 +46,7 @@ button {
     padding-left: 32px;
     padding-right: 32px;
   }
+}
+.current {
+  border-bottom: 2px solid var(--font-orange-color);
 }

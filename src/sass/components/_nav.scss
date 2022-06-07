@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  width: 100%;
+  &__list {
+    margin-left: auto;
+    display: flex;
+  }
+  &__item:not(:last-child) {
+    margin-right: 40px;
+  }
+  &__svg {
+    fill: red;
+  }
+  &__btn {
+    font-weight: inherit;
+    color: var(--font-white-color);
+    background-color: transparent;
+  }
+}
