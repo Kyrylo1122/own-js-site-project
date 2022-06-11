@@ -1,5 +1,5 @@
 export default function cardTemplate(poster, title, genre, dateRelease, rate) {
-  return `<li class="card">
+  return `<li class="main-gallery__item card">
     <div class="card__container">
 <img
           src="https://image.tmdb.org/t/p/w200/${poster}"
