@@ -5,11 +5,12 @@ import { renderPaginationBtn } from './btnPagination';
 
 const containerEl = document.querySelector('.main-gallery__list');
 const pageContainer = document.querySelector('.page');
+const pagFirstBtn = document.querySelector('.pagination__btn--firstPage');
 let page = 1;
-renderCards();
+renderCards(page);
 
-function renderCards() {
-  fetchFilms(page).then(({ results }) => {
+function renderCards(pageNumb) {
+  fetchFilms(pageNumb).then(({ results }) => {
     const render = results
       .map(({ poster_path, title, release_date, genre_ids, vote_average }) => {
         const releaseDate = release_date.slice(0, 4);
@@ -25,7 +26,7 @@ function renderCards() {
       .join('');
     containerEl.innerHTML = render;
   });
-  renderPaginationBtn(page, pageContainer);
+  renderPaginationBtn(pageNumb, pageContainer);
 }
 
 pageContainer.addEventListener('click', fetchNewPage);
@@ -35,6 +36,13 @@ function fetchNewPage(e) {
     return;
   }
   page = Number(e.target.id);
-  renderCards();
+  renderCards(page);
+  scroll(0, 0);
+}
+
+pagFirstBtn.addEventListener('click', renderFirstPage);
+
+function renderFirstPage(e) {
+  renderCards(1);
   scroll(0, 0);
 }
