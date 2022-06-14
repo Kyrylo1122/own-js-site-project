@@ -1,3 +1,3 @@
 // import './js/go';
-import './js/baseRenderFilms';
-import './js/searchFilm';
+import './js/baseFile';
+import './js/modal';

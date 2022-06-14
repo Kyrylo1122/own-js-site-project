@@ -1,5 +1,7 @@
+import { elementIsVisible, elementIsHidden } from './remove&Add-hidden';
 const pagFirstBtn = document.querySelector('.pagination__btn--firstPage');
-export function renderPaginationBtn(page, container) {
+
+export function renderPaginationBtn(totalPage, page, container) {
   let allBtn = '';
   let liElements = null;
 
@@ -8,12 +10,15 @@ export function renderPaginationBtn(page, container) {
 
   if (page <= 3) {
     afterPage = page + 3;
-    addHiddenClass();
+    elementIsHidden(pagFirstBtn);
   } else {
     afterPage = page + 2;
-    removeHiddenClass();
+    elementIsVisible(pagFirstBtn);
   }
 
+  if (afterPage >= totalPage) {
+    afterPage = totalPage;
+  }
   for (let i = beforePage; i <= afterPage; i += 1) {
     if (i <= 0) {
       continue;
@@ -27,15 +32,4 @@ export function renderPaginationBtn(page, container) {
   }
 
   container.innerHTML = allBtn;
-}
-
-function addHiddenClass() {
-  if (!pagFirstBtn.classList.contains('pagination__btn--hidden')) {
-    pagFirstBtn.classList.add('pagination__btn--hidden');
-  }
-}
-function removeHiddenClass() {
-  if (pagFirstBtn.classList.contains('pagination__btn--hidden')) {
-    pagFirstBtn.classList.remove('pagination__btn--hidden');
-  }
 }

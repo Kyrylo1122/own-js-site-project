@@ -10,3 +10,7 @@
   clip-path: inset(50%);
   margin: -1px;
 }
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}

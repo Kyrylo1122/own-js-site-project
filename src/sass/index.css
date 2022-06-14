@@ -95,6 +95,11 @@ button {
   margin: -1px;
 }
 
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .form {
   width: 100%;
 }
@@ -114,6 +119,7 @@ button {
 .form__input {
   width: 100%;
   border: none;
+  outline: none;
   border-bottom: 1px solid #fff;
   background-color: transparent;
   color: var(--font-white-color);
@@ -238,12 +244,20 @@ button {
 }
 
 .backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   height: 100vh;
   width: 100vw;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  opacity: 1;
+}
+
+.backdrop.isHidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .btn__close {
@@ -295,6 +309,9 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .film__items:not(:last-child) {
@@ -303,6 +320,13 @@ button {
 
 .film__span {
   margin-left: auto;
+}
+
+.film__span--vote {
+  background-color: var(--font-orange-color);
+  padding: 2px 10px;
+  border-radius: 4px;
+  color: var(--font-white-color);
 }
 
 .film__about {
@@ -546,27 +570,32 @@ button {
   }
 }
 
-.modal1 {
+.modal {
   background-color: aliceblue;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   padding: 45px 20px;
   width: calc(100% - 40px);
   height: 940px;
   overflow: auto;
+  border-radius: 6px;
+  -webkit-transform: scale(1) translate(-50%, -50%);
+          transform: scale(1) translate(-50%, -50%);
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
 }
 
 @media screen and (min-width: 480px) {
-  .modal1 {
+  .modal {
     width: 440px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .modal1 {
+  .modal {
     height: 552px;
     width: 704px;
     padding: 40px 36px;
@@ -574,14 +603,23 @@ button {
 }
 
 @media screen and (min-width: 1024px) {
-  .modal1 {
+  .modal {
     height: 558px;
     width: 814px;
     padding: 40px 16px;
   }
 }
 
-.modal1__list {
+.backdrop.isHidden .modal {
+  -webkit-transform: scale(1.2) translate(-50%, -50%);
+          transform: scale(1.2) translate(-50%, -50%);
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+}
+
+.modal__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -596,7 +634,7 @@ button {
 }
 
 @media screen and (min-width: 768px) {
-  .modal1__list {
+  .modal__list {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -606,25 +644,31 @@ button {
 }
 
 @media screen and (min-width: 1024px) {
-  .modal1__list {
+  .modal__list {
     margin: -8px;
   }
 }
 
-.modal1__item {
+.modal__item {
   margin: 10px;
 }
 
 @media screen and (min-width: 768px) {
-  .modal1__item {
+  .modal__item {
     width: 50%;
     margin: 35px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .modal1__item {
+  .modal__item {
     margin: 8px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .modal__item--top {
+    width: 40%;
   }
 }
 /*# sourceMappingURL=index.css.map */

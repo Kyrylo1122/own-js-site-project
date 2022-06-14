@@ -13,3 +13,25 @@ export async function fetchFilms(page) {
     throw new Error('Something gone wrong', error);
   }
 }
+
+export async function searchedQuery(query, page = 1) {
+  try {
+    const { data } = await axios.get(
+      `/3/search/movie?api_key=${API_KEY}&query=${query}&language=en-US&page=${page}`
+    );
+    return data;
+  } catch (error) {
+    throw new Error('Something gone wrong', error);
+  }
+}
+
+export async function fullFilmInformation(movie_id) {
+  try {
+    const { data } = await axios.get(
+      `/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US`
+    );
+    return data;
+  } catch (error) {
+    throw new Error('Something gone wrong', error);
+  }
+}
